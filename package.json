@@ -2,11 +2,11 @@
   "name": "nodelearning",
   "version": "1.0.0",
   "description": "for learning Node JS",
-  "main": "src/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
   },
   "author": "Arvind Kumar Singh Thakur",
   "license": "ISC",
