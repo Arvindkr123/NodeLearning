@@ -48,10 +48,8 @@ const userSchema = new Schema(
 );
 
 userSchema.pre("save", async function (next) {
-  // if password is not modified then return next
-  if (!this.isModified("password")) return next();
-  // if it is modified then do this
-  this.password = bcrypt.hash(this.password, 10);
+  if (!this.isModified("password")) return next()
+  this.password = await bcrypt.hash(this.password, 10)
   next();
 });
 
@@ -85,4 +83,4 @@ userSchema.methods.generateRefreshToken = function () {
   );
 };
 
-export const UserModel = Model("User", userSchema);
+export const UserModel = mongoose.model("User", userSchema);
