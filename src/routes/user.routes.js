@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   loginUser,
   logoutUser,
+  refreshAccessToken,
   registerUser,
 } from "../controllers/user.controller.js";
 import { upload } from "./../middleware/multer.middleware.js";
@@ -9,6 +10,7 @@ import { verifyJWT } from "../middleware/auth.middleware.js";
 
 const router = Router();
 
+//TODO:REGISTER
 router.route("/register").post(
   // middleware
   upload.fields([
@@ -25,10 +27,13 @@ router.route("/register").post(
   registerUser
 );
 
-// LOGIN_ROUTE:
+//TODO: LOGIN_ROUTE:
 router.route("/login").post(loginUser);
 
-// secured route
+//TODO: secured route
 router.route("/logout").post(verifyJWT, logoutUser);
+
+//:::::TODO: refresh token route
+router.route("/refresh-token").post(refreshAccessToken);
 
 export default router;
