@@ -10,7 +10,7 @@ import { verifyJWT } from "../middleware/auth.middleware.js";
 
 const router = Router();
 
-//TODO:REGISTER
+//REGISTER
 router.route("/register").post(
   // middleware
   upload.fields([
@@ -27,13 +27,13 @@ router.route("/register").post(
   registerUser
 );
 
-//TODO: LOGIN_ROUTE:
+//LOGIN_ROUTE:
 router.route("/login").post(loginUser);
 
-//TODO: secured route
+//secured route
 router.route("/logout").post(verifyJWT, logoutUser);
 
-//:::::TODO: refresh token route
+// refresh token route
 router.route("/refresh-token").post(refreshAccessToken);
 
 export default router;
